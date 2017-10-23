@@ -9,14 +9,21 @@
     for ( i=0; i<toggler.length; i++) {
       toggler[i].addEventListener('click', function() {
         if (slideMenu.style.display == 'flex') {
-          // this.style.display = 'flex';
-          slideMenu.style.display= 'none';
-           defaultNav.style.display = 'flex';
+          //this.style.display = 'flex';
+          slideMenu.style.animationName = 'slideout';
+                   
+          window.setTimeout(function () {
+            // wait for the transition to finish
+             slideMenu.style.display= 'none';
+          }, 500);
+          
+          defaultNav.style.display = 'flex';
         }
         else {
-          // this.style.display = 'none';
+          //this.style.display = 'none';
+          slideMenu.style.animationName = 'slidein';
           slideMenu.style.display = 'flex';
-           defaultNav.style.display = 'none';
+          defaultNav.style.display = 'none';
         }
       });
     }

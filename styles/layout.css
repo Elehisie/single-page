@@ -1,4 +1,6 @@
-/*generic layout considering phones, tablets and desktops*/
+/* generic layout considering phones, tablets and desktops 
+   the default is the smallest version possible
+*/
 
 body {
   width: 100vw;
@@ -23,12 +25,25 @@ nav#defaultNav {
 nav#slideMenu {
   display: none;
   width: 100vw;
+  height: 100vh;
   padding: 10px;
   flex-direction: column;
   align-items: center;
   background-color: yellow;
   position: fixed;
   top: 0px;
+  animation-name: slidein;
+  animation-duration: 0.5s;
+}
+
+@keyframes slidein {
+  0% {left: -300px;}
+  100% {left: 0px;}
+}
+
+@keyframes slideout {
+  0% {left: 0px;}
+  100% {left: -300px; opacity: 0; }
 }
 
 nav i {
@@ -69,6 +84,8 @@ aside {
 
 .toggler {
   cursor: pointer;
+  width: 25px;
+  height: 25px;
 }
 
 @media screen and (min-width: 479px) and (max-width: 699px) {
@@ -97,7 +114,7 @@ aside {
 
   nav#slideMenu {
     display: none;
-    width: 35%;
+    width: 25%;
     flex-direction: column;
     font-size: 1em;
     position: fixed;
